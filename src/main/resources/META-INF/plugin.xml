@@ -1,18 +1,32 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.dawidzak.languagebuddy</id>
-    <name>language-buddy Template</name>
+    <name>Language Buddy</name>
     <vendor>dawidzak</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
     <resource-bundle>messages.MyBundle</resource-bundle>
+    <description>
+        <![CDATA[
+        The Language Buddy boost your vocabulary effortlessly with a new English word every day.
+            ]]>
+    </description>
 
-    <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.dawidzak.languagebuddy.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
-    </extensions>
-
-    <applicationListeners>
-        <listener class="com.github.dawidzak.languagebuddy.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
-    </applicationListeners>
+    <change-notes>
+        <![CDATA[
+      <ul>
+        <li>Initial version with Show Word of The Day <b>(Ctrl Alt W / Cmd Opt W)</b></li>
+      </ul>
+    ]]>
+    </change-notes>
+    <actions>
+        <action
+                id="com.github.dawidzak.languagebuddy.ui.WordOfTheDayAction"
+                class="com.github.dawidzak.languagebuddy.ui.WordOfTheDayAction"
+                text="Show Word Of The Day">
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+            <keyboard-shortcut first-keystroke="control alt W" keymap="$default"/>
+        </action>
+    </actions>
 </idea-plugin>

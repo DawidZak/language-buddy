@@ -18,6 +18,11 @@
 
 <!-- Plugin description -->
 The Language Buddy boost your vocabulary effortlessly with a new English word every day.
+To check new English word, go to the <kbd>Tools -> Show Word of The Day</kbd>. 
+
+<b>Features:</b>
+
+- Word Of The Day  
 <!-- Plugin description end -->
 
 ## Installation

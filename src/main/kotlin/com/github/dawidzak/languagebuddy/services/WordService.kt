@@ -3,7 +3,6 @@ package com.github.dawidzak.languagebuddy.services
 import com.github.dawidzak.languagebuddy.dto.WordOfTheDayResponse
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.components.Service
-import com.intellij.openapi.components.service
 import com.intellij.util.containers.stream
 import java.util.stream.Collectors
 
@@ -11,7 +10,7 @@ import java.util.stream.Collectors
 @Service
 class WordService {
     fun get():WordOfTheDayResponse {
-        val service = ApplicationManager.getApplication().service<WordHttpClient>()
+        val service = ApplicationManager.getApplication().getService(WordHttpClient::class.java)
         val executeOnPooledThread = ApplicationManager.getApplication().executeOnPooledThread { service.get() }
         executeOnPooledThread.isDone
         return service.get();

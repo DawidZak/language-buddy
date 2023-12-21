@@ -14,9 +14,9 @@ class WordOfTheDayAction : AnAction() {
     override fun actionPerformed(event: AnActionEvent) {
         val app = ApplicationManager.getApplication()
         app.executeOnPooledThread {
-            val response = app.service<WordHttpClient>().get();
+            val response = app.getService(WordHttpClient::class.java).get();
             app.invokeLater {
-                val service = app.service<WordService>()
+                val service = app.getService(WordService::class.java)
                 Messages.showMessageDialog(
                     event.project,
                     service.toHtmlContent(response),

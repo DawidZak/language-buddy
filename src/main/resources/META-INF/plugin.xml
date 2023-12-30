@@ -28,5 +28,12 @@
             <add-to-group group-id="ToolsMenu" anchor="first"/>
             <keyboard-shortcut first-keystroke="control alt W" keymap="$default"/>
         </action>
+        <action
+                id="com.github.dawidzak.languagebuddy.ui.RecallWordOfTheDayAction"
+                class="com.github.dawidzak.languagebuddy.ui.RecallWordOfTheDayAction"
+                text="Recall">
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+            <keyboard-shortcut first-keystroke="control alt A" keymap="$default"/>
+        </action>
     </actions>
 </idea-plugin>

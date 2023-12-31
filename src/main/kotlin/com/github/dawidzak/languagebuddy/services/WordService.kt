@@ -9,6 +9,7 @@ import java.util.stream.Collectors
 
 @Service
 class WordService {
+
     fun get():WordOfTheDayResponse {
         val service = ApplicationManager.getApplication().getService(WordHttpClient::class.java)
         val executeOnPooledThread = ApplicationManager.getApplication().executeOnPooledThread { service.get() }

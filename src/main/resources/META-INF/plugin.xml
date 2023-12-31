@@ -21,19 +21,17 @@
     ]]>
     </change-notes>
     <actions>
-        <action
-                id="com.github.dawidzak.languagebuddy.ui.WordOfTheDayAction"
-                class="com.github.dawidzak.languagebuddy.ui.WordOfTheDayAction"
-                text="Show Word Of The Day">
-            <add-to-group group-id="ToolsMenu" anchor="first"/>
-            <keyboard-shortcut first-keystroke="control alt W" keymap="$default"/>
+        <group id="LanguageBuddyGroup" popup="true" text="Language Buddy" description="Custom2">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </group>
+        <action id="com.github.dawidzak.languagebuddy.ui.RecallWordOfTheDayAction1"
+                class="com.github.dawidzak.languagebuddy.ui.RecallWordOfTheDayAction" text="Recall Word Of The Day">
+            <add-to-group group-id="LanguageBuddyGroup"
+                          relative-to-action="com.github.dawidzak.languagebuddy.ui.WordOfTheDayAction" anchor="after"/>
         </action>
-        <action
-                id="com.github.dawidzak.languagebuddy.ui.RecallWordOfTheDayAction"
-                class="com.github.dawidzak.languagebuddy.ui.RecallWordOfTheDayAction"
-                text="Recall">
-            <add-to-group group-id="ToolsMenu" anchor="first"/>
-            <keyboard-shortcut first-keystroke="control alt A" keymap="$default"/>
+        <action id="com.github.dawidzak.languagebuddy.ui.WordOfTheDayAction"
+                class="com.github.dawidzak.languagebuddy.ui.WordOfTheDayAction" text="Show Word Of The Day">
+            <add-to-group group-id="LanguageBuddyGroup" anchor="first"/>
         </action>
     </actions>
 </idea-plugin>

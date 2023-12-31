@@ -1,5 +1,6 @@
 package com.github.dawidzak.languagebuddy.ui
 
+import com.github.dawidzak.languagebuddy.services.RecallModel
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.DialogPanel
 import com.intellij.openapi.ui.DialogWrapper
@@ -7,7 +8,7 @@ import com.intellij.ui.dsl.builder.*
 import java.awt.Dimension
 import javax.swing.JComponent
 
-class RecallDialogWrapper(project: Project?) :
+class RecallDialogWrapper(project: Project?, private val recallModel: RecallModel) :
     DialogWrapper(project, null, true, IdeModalityType.MODELESS, true) {
 
     init {
@@ -22,29 +23,27 @@ class RecallDialogWrapper(project: Project?) :
     }
 
     private fun recallPanel(): DialogPanel {
-        val model = Model();
-
+        val model = Model()
         val panel: DialogPanel = panel {
             row {
                 label("Definition")
             }
             row {
-                label("<html>to bend your head or body forward, especially as a way of showing someone respect or expressing thanks to people who have watched you perform</html>")
+                label("<html>${recallModel.definition}</html>")
             }.bottomGap(BottomGap.MEDIUM)
             row("Answer") {
                 textField()
                     .validationOnInput {
-                        if (it.text != "test") {
+                        if (it.text != recallModel.word) {
                             error("Incorrect")
                         } else {
                             null
                         }
-
                     }
                     .bindText(model::textField)
             }
         }
-        return panel;
+        return panel
     }
 
     override fun doOKAction() {

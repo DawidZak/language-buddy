@@ -23,6 +23,7 @@ To check new English word, go to the <kbd>Tools > Show Word of The Day</kbd>.
 <b>Features:</b>
 
 - Word Of The Day  
+- Recall Word Of The Day
 <!-- Plugin description end -->
 
 ## Installation

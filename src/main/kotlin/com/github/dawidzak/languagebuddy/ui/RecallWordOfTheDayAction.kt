@@ -11,10 +11,10 @@ class RecallWordOfTheDayAction : AnAction() {
     override fun actionPerformed(e: AnActionEvent) {
         val app = ApplicationManager.getApplication()
         app.executeOnPooledThread {
-            val response = app.getService(WordHttpClient::class.java).get()
+            val response = app.getService(WordHttpClient::class.java).getWordOfTheDay()
             app.invokeLater {
-                val wordOfTheDay = response.words.asList().random()
-                val recallModel = RecallModel(wordOfTheDay.word, wordOfTheDay.definition)
+                val wordOfTheDay = response.details.asList().random()
+                val recallModel = RecallModel(response.word, wordOfTheDay.meaning)
                 RecallDialogWrapper(e.project, recallModel).show()
             }
         }
